@@ -1,0 +1,7 @@
+BASELINE MODEL RESULTS:-
+
+Model = distilgpt2
+
+Input:-
+Customer:- My order has not arrived yet and I am sad
+Generated Reply:- I am sorry I have not recieved the order yet...

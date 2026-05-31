@@ -1,0 +1,5 @@
+{
+    "baseline_accuracy": 72,
+    "rule_based_accuracy": 80,
+    "retrieval_accuracy": 88
+}

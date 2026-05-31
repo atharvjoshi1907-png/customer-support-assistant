@@ -1,0 +1,162 @@
+
+================================================================================
+MESSAGE:
+My order is delayed.
+
+BASELINE MODEL:
+
+Hello there! Let's get this sorted out for you.
+
+We are sorry to hear about the following issue:
+
+My order is delayed.
+
+Our support team is currently reviewing the situation and will assist you as quickly as possible.
+
+Thank you for your patience and understanding.
+
+Best Regards,
+Customer Support Team
+
+
+RULE BASED MODEL:
+We are sorry for the delay in your order. Our logistics team is currently investigating the issue and will provide an update shortly.
+
+RETRIEVAL BASED MODEL:
+Orders may occasionally be delayed due to logistics or weather conditions.
+
+
+================================================================================
+MESSAGE:
+I want a refund.
+
+BASELINE MODEL:
+
+Hello there! Let's get this sorted out for you.
+
+We are sorry to hear about the following issue:
+
+I want a refund.
+
+Our support team is currently reviewing the situation and will assist you as quickly as possible.
+
+Thank you for your patience and understanding.
+
+Best Regards,
+Customer Support Team
+
+
+RULE BASED MODEL:
+We apologize for the inconvenience. Your refund request has been forwarded to our billing team. You will receive an update within 2-3 business days.
+
+RETRIEVAL BASED MODEL:
+Refunds are generally processed within 5-7 business days after approval.
+
+
+================================================================================
+MESSAGE:
+The package arrived damaged.
+
+BASELINE MODEL:
+
+Hello there! Let's get this sorted out for you.
+
+We are sorry to hear about the following issue:
+
+The package arrived damaged.
+
+Our support team is currently reviewing the situation and will assist you as quickly as possible.
+
+Thank you for your patience and understanding.
+
+Best Regards,
+Customer Support Team
+
+
+RULE BASED MODEL:
+We apologize for receiving a damaged product. Please share photos of the item and packaging so we can assist with a replacement or refund.
+
+RETRIEVAL BASED MODEL:
+Damaged products can be replaced within 7 days of delivery.
+
+
+================================================================================
+MESSAGE:
+Where is my order?
+
+BASELINE MODEL:
+
+Hello there! Let's get this sorted out for you.
+
+We are sorry to hear about the following issue:
+
+Where is my order?
+
+Our support team is currently reviewing the situation and will assist you as quickly as possible.
+
+Thank you for your patience and understanding.
+
+Best Regards,
+Customer Support Team
+
+
+RULE BASED MODEL:
+Thank you for contacting customer support. Our support team will review your concern and get back to you soon.
+
+RETRIEVAL BASED MODEL:
+No matching support article was found in the knowledge base.
+
+
+================================================================================
+MESSAGE:
+I want to cancel my order.
+
+BASELINE MODEL:
+
+Hello there! Let's get this sorted out for you.
+
+We are sorry to hear about the following issue:
+
+I want to cancel my order.
+
+Our support team is currently reviewing the situation and will assist you as quickly as possible.
+
+Thank you for your patience and understanding.
+
+Best Regards,
+Customer Support Team
+
+
+RULE BASED MODEL:
+Your cancellation request has been received. Our team will verify the order status and process the request.
+
+RETRIEVAL BASED MODEL:
+Orders can be cancelled before they are shipped.
+
+
+================================================================================
+MESSAGE:
+My tracking information is not updating.
+
+BASELINE MODEL:
+
+Hello there! Let's get this sorted out for you.
+
+We are sorry to hear about the following issue:
+
+My tracking information is not updating.
+
+Our support team is currently reviewing the situation and will assist you as quickly as possible.
+
+Thank you for your patience and understanding.
+
+Best Regards,
+Customer Support Team
+
+
+RULE BASED MODEL:
+Thank you for contacting customer support. Our support team will review your concern and get back to you soon.
+
+RETRIEVAL BASED MODEL:
+Tracking details are available in the Orders section of your account.
+

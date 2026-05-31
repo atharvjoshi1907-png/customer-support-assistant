@@ -68,3 +68,10 @@ urllib3==2.7.0
 uvicorn==0.48.0
 websockets==16.0
 Werkzeug==3.1.8
+flask
+flask-cors
+transformers
+torch
+sentencepiece
+accelerate
+numpy==1.26.4

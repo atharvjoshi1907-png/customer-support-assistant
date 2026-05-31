@@ -1,32 +1,16 @@
-from transformers import pipeline
+def generate_ai_reply(message):
 
-print("Loading model...")
+    return f"""
+Hello there! Let's get this sorted out for you.
 
-generator = pipeline(
-    "text-generation",
-    model="distilgpt2"
-)
+We are sorry to hear about the following issue:
 
-prompt = """
-You are a professional customer support assistant.
+{message}
 
-Customer: My order has not arrived yet and I am upset.
+Our support team is currently reviewing the situation and will assist you as quickly as possible.
 
-Support Agent:
+Thank you for your patience and understanding.
+
+Best Regards,
+Customer Support Team
 """
-
-response = generator(
-    prompt,
-    max_new_tokens=40,
-    temperature=0.4,
-    repetition_penalty=1.5,
-    do_sample=True,
-    truncation=True
-)
-
-generated_text = response[0]["generated_text"]
-
-reply = generated_text.split("Support Agent:")[-1]
-
-print("\nGenerated Reply:\n")
-print(reply.strip())

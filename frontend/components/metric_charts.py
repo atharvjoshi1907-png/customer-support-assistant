@@ -2,7 +2,6 @@ import streamlit as st
 import plotly.graph_objects as go
 
 def render_accuracy_chart():
-    # Production dummy accuracy telemetry metrics
     epochs = [1, 2, 3, 4]
     accuracy = [76.5, 84.2, 89.8, 94.2]
 
@@ -17,7 +16,7 @@ def render_accuracy_chart():
     ))
 
     fig.update_layout(
-        paper_bgcolor='rgba(0,0,0,0)',  # Deep transparent background flush
+        paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
         font=dict(color='#f8fafc', family='sans-serif'),
         margin=dict(l=40, r=20, t=20, b=40),
@@ -39,7 +38,6 @@ def render_accuracy_chart():
 
 
 def render_latency_chart():
-    # Production dummy response timeline parameters
     batch = ["Batch A", "Batch B", "Batch C", "Batch D"]
     latency = [0.45, 0.38, 0.29, 0.24]
 
@@ -53,7 +51,7 @@ def render_latency_chart():
     ))
 
     fig.update_layout(
-        paper_bgcolor='rgba(0,0,0,0)',  # Deep transparent background flush
+        paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
         font=dict(color='#f8fafc', family='sans-serif'),
         margin=dict(l=40, r=20, t=20, b=40),

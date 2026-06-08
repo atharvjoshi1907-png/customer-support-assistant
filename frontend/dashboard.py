@@ -43,7 +43,7 @@ if logo_base64:
     }}
     """
 
-# Google Stitch Inspired Deep Space Grid Interactive Engine Styling
+# Google Stitch Inspired Deep Space Grid Styling with Blended Clean Header Architecture
 st.markdown(f"""
 <style>
     /* Global Canvas Reset & Interactive Matrix Background Blueprint */
@@ -58,6 +58,12 @@ st.markdown(f"""
         color: #f8fafc !important;
     }}
     
+    /* Remove default top padding added by Streamlit block structure */
+    .block-container {{
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }}
+    
     {logo_watermark_style}
 
     /* Core Page Entry Shift Animation Blueprint */
@@ -66,7 +72,7 @@ st.markdown(f"""
         100% {{ opacity: 1; transform: translateY(0); filter: blur(0); }}
     }}
     
-    /* Bind animation cleanly to prevent white flash container frames */
+    /* Bind animation cleanly to content container views */
     [data-testid="stVerticalBlock"] > div {{
         animation: stitchFadeEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
     }}
@@ -79,69 +85,72 @@ st.markdown(f"""
         background-color: transparent !important;
     }}
 
-    /* Premium Clean Floating Navbar Container Layout */
-    .nav-bar-container {{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 14px 28px;
-        border-radius: 14px;
-        margin-bottom: 24px;
-        border: 1px solid rgba(56, 189, 248, 0.15);
-        background: rgba(15, 23, 42, 0.75);
-        backdrop-filter: blur(12px);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    /* Clean Integrated Header Branding Block */
+    .saas-header-inline {{
+        padding: 0 0 10px 0;
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(56, 189, 248, 0.15);
     }}
 
     .nav-brand-text {{
-        font-size: 24px;
+        font-size: 26px;
         font-weight: 800;
         color: #38bdf8;
         letter-spacing: -0.5px;
     }}
 
-    /* Streamlit Complete Button Frame Layer Override Mapping */
+    /* Seamless Row Navigation Overrides */
+    div[data-testid="stHorizontalBlock"] {{
+        background: transparent !important;
+        padding: 0 !important;
+        align-items: center !important;
+        margin-bottom: 30px !important;
+    }}
+
+    /* Frameless Navigation Links Interface Style */
     div.stButton > button {{
-        background-color: rgba(30, 41, 59, 0.7) !important;
-        color: #f8fafc !important;
-        border: 1px solid rgba(255, 255, 255, 0.12) !important;
-        backdrop-filter: blur(8px);
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
-        border-radius: 8px !important;
+        background-color: transparent !important;
+        color: #cbd5e1 !important;
+        border: none !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        transition: all 0.2s ease-in-out !important;
+        border-radius: 6px !important;
+        padding: 6px 14px !important;
         cursor: pointer !important;
+        text-align: left !important;
     }}
     
-    /* Strict pointer hover injection rule override */
+    /* Elegant Underline-Glow Hover Accent Simulation */
     div.stButton > button:first-child:hover,
     div.stButton > button:hover {{
-        background-color: #38bdf8 !important;
-        color: #070a13 !important;
-        border-color: #38bdf8 !important;
-        transform: translateY(-2px) !important;
-        box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) !important;
+        background-color: rgba(56, 189, 248, 0.08) !important;
+        color: #38bdf8 !important;
+        transform: translateY(-1px) !important;
+        box-shadow: none !important;
     }}
     
-    /* Keep text matching sharp on hover focus states */
+    /* Typography color force mappings on hover states */
     div.stButton > button:hover p,
     div.stButton > button:hover span,
     div.stButton > button:hover div {{
-        color: #070a13 !important;
+        color: #38bdf8 !important;
     }}
     
-    /* Active Navigation Button Layout Frame Fix */
+    /* Clean Active Text Link Indicator Architecture */
     div.stButton > button[data-testid="baseButton-primary"] {{
-        background-color: #38bdf8 !important;
-        color: #070a13 !important;
-        border-color: #38bdf8 !important;
+        background-color: rgba(56, 189, 248, 0.12) !important;
+        color: #38bdf8 !important;
         font-weight: 700 !important;
-        box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
+        border: 1px solid rgba(56, 189, 248, 0.25) !important;
+        box-shadow: 0 2px 10px rgba(56, 189, 248, 0.1) !important;
     }}
     
     div.stButton > button[data-testid="baseButton-primary"]:hover {{
-        box-shadow: 0 0 22px rgba(56, 189, 248, 0.55) !important;
+        background-color: rgba(56, 189, 248, 0.18) !important;
     }}
 
-    /* Clean typography rule forcing across all markdown wrappers */
+    /* Global Typography Rules */
     h1, h2, h3, h4, h5, h6, p, span, label, [data-testid="stWidgetLabel"] {{
         color: #f8fafc !important;
     }}
@@ -157,7 +166,30 @@ st.markdown(f"""
 </style>
 """, unsafe_allow_html=True)
 
-# Top Earth Hero Module Block Setup
+# 1. Inline Blended Navbar Header Brand
+st.markdown("""
+<div class="saas-header-inline">
+    <span class="nav-brand-text">⚡ Sentix AI</span>
+</div>
+""", unsafe_allow_html=True)
+
+# 2. Page Switch Routing Initialization
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "Research"
+
+# Horizontal Navigation Links Row Directly Below Brand Title Line
+nav_cols = st.columns([1, 1, 1, 1.2, 1, 5])
+pages = ["Research", "Assistant", "Analytics", "Comparisons", "Contact"]
+icons = ["🔬 ", "🤖 ", "📊 ", "🔀 ", "📞 "]
+
+for i, page in enumerate(pages):
+    with nav_cols[i]:
+        is_active = st.session_state.current_page == page
+        if st.button(f"{icons[i]}{page}", key=f"nav_btn_{page}", use_container_width=True, type="primary" if is_active else "secondary"):
+            st.session_state.current_page = page
+            st.rerun()
+
+# 3. Top Earth Hero Module Block Setup
 st.markdown(
     """
     <div style="
@@ -167,7 +199,7 @@ st.markdown(
         border-radius: 14px;
         padding: 36px;
         border: 1px solid rgba(56, 189, 248, 0.15);
-        margin-bottom: 25px;
+        margin-bottom: 35px;
         box-shadow: 0 10px 40px rgba(0,0,0,0.4);
     ">
         <p style="font-size: 11px; color: #38bdf8; font-weight: 700; margin: 0 0 6px 0; letter-spacing: 2px;">SENTIMENT-AWARE RESPONSE PLATFORM</p>
@@ -180,24 +212,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-if "current_page" not in st.session_state:
-    st.session_state.current_page = "Research"
-
-st.markdown('<div class="nav-bar-container"><span class="nav-brand-text">⚡ Sentix AI</span></div>', unsafe_allow_html=True)
-
-nav_cols = st.columns([1, 1, 1, 1, 1, 4])
-pages = ["Research", "Assistant", "Analytics", "Comparisons", "Contact"]
-icons = ["🔬 ", "🤖 ", "📊 ", "🔀 ", "📞 "]
-
-for i, page in enumerate(pages):
-    with nav_cols[i]:
-        is_active = st.session_state.current_page == page
-        if st.button(f"{icons[i]}{page}", key=f"nav_btn_{page}", use_container_width=True, type="primary" if is_active else "secondary"):
-            st.session_state.current_page = page
-            st.rerun()
-
-st.markdown("---")
-
+# Render View Components
 if st.session_state.current_page == "Research":
     render_research_view()
 elif st.session_state.current_page == "Assistant":

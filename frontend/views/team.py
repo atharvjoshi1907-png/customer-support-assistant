@@ -1,112 +1,75 @@
 import streamlit as st
-import streamlit.components.v1 as components
+from components.footer import render_footer
 
-TEAM_CARDS = """
-    <section class="team-grid">
-        <article class="person-card">
-            <div class="avatar avatar-a"><div class="avatar-initials">AJ</div></div>
+def render_team():
+    st.markdown("<h1 style='font-weight: 800; margin-bottom: 10px;'>System Engineering Core</h1>", unsafe_allow_html=True)
+    st.markdown("""
+    <style>
+        .team-tech-card {
+            padding: 30px;
+            border-radius: 14px;
+            border-top: 4px solid #6366f1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.01);
+            transition: all 0.25s ease;
+        }
+        .team-tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(79, 70, 229, 0.08);
+        }
+        .team-tech-card h3 { margin-top: 0 !important; font-size: 24px !important; font-weight: 700 !important; }
+        .uid-tag { font-family: monospace; font-size: 14px !important; color: #6366f1; font-weight: 600; }
+        
+        @media (prefers-color-scheme: dark) { .team-tech-card { background: #1e293b; } }
+        @media (prefers-color-scheme: light) { .team-tech-card { background: #ffffff; border: 1px solid #e2e8f0; border-top: 4px solid #6366f1; } }
+    </style>
+    """, unsafe_allow_html=True)
+
+    c1, c2, c3 = st.columns(3)
+    
+    with c1:
+        st.markdown("""
+        <div class="team-tech-card">
+            <span class="uid-tag">ENG_NODE_01</span>
             <h3>Atharv Joshi</h3>
-            <div class="person-role">Lead Developer</div>
-            <ul class="person-list">
-                <li>NLP Pipeline Design</li>
-                <li>Backend Development</li>
-                <li>Model Integration</li>
-            </ul>
-        </article>
-        <article class="person-card">
-            <div class="avatar avatar-d"><div class="avatar-initials">DA</div></div>
-            <h3>Drishti Ahuja</h3>
-            <div class="person-role">Developer &amp; Researcher</div>
-            <ul class="person-list">
-                <li>UI/UX Design</li>
-                <li>Training, Testing &amp; Evaluation</li>
-                <li>Documentation</li>
-            </ul>
-        </article>
-        <article class="person-card">
-            <div class="avatar avatar-p"><div class="avatar-initials">AS</div></div>
-            <h3>Prof. Abhishek Srivastava</h3>
-            <div class="person-role">Academic Guide</div>
-            <ul class="person-list">
-                <li>Research Guidance</li>
-                <li>Project Supervision</li>
-                <li>Evaluation &amp; Review</li>
-            </ul>
-        </article>
-    </section>
-"""
+            <p style="margin: 5px 0 15px 0; font-weight: 600; color: #4f46e5;">Lead Pipeline Architect</p>
+            <p style="font-size: 16px !important; line-height: 1.6;">Responsible for managing tensor vector pipelines, quantization pathways, and cluster distribution logic loops.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-TEAM_STYLE = """
-<style>
-    body { margin: 0; font-family: sans-serif; }
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
-        margin-top: 8px;
-    }
-    .person-card {
-        background: #fff;
-        border: 1px solid #dde1e8;
-        border-radius: 8px;
-        box-shadow: 0 4px 18px rgba(16,33,60,.07);
-        padding: 32px 26px 26px;
-        text-align: center;
-    }
-    .avatar {
-        width: 110px;
-        height: 110px;
-        border-radius: 50%;
-        margin: 0 auto 16px;
-        overflow: hidden;
-        background: #d9dce1;
-        display: grid;
-        place-items: center;
-    }
-    .avatar-initials {
-        width: 70px;
-        height: 70px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        color: #fff;
-        font-size: 23px;
-        font-weight: 800;
-    }
-    .avatar-a .avatar-initials { background: linear-gradient(160deg, #1f3854, #101b29); }
-    .avatar-d .avatar-initials { background: linear-gradient(160deg, #1c1f2c, #a35f57); }
-    .avatar-p .avatar-initials { background: linear-gradient(160deg, #2d425b, #131924); }
-    .person-card h3 {
-        color: #22324b;
-        font-size: 16px;
-        line-height: 1.2;
-        margin: 0 0 4px;
-        font-weight: 800;
-    }
-    .person-role {
-        color: #1a73e8;
-        font-size: 12px;
-        line-height: 1.2;
-        margin-bottom: 16px;
-        font-weight: 800;
-    }
-    .person-list {
-        display: inline-block;
-        margin: 0;
-        padding-left: 16px;
-        color: #2e3d52;
-        font-size: 13px;
-        font-weight: 700;
-        line-height: 1.7;
-        text-align: left;
-    }
-    @media (max-width: 850px) {
-        .team-grid { grid-template-columns: 1fr; }
-    }
-</style>
-"""
+    with c2:
+        st.markdown("""
+        <div class="team-tech-card">
+            <span class="uid-tag">ENG_NODE_02</span>
+            <h3>Drishti</h3>
+            <p style="margin: 5px 0 15px 0; font-weight: 600; color: #4f46e5;">Interface Systems Engineer</p>
+            <p style="font-size: 16px !important; line-height: 1.6;">Maintains real-time canvas configuration styles, responsive variable scripts, and high-fidelity tracking layouts.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-TEAM_HTML = "<main style='padding: 16px;'>" + TEAM_CARDS + "</main>" + TEAM_STYLE
+    with c3:
+        st.markdown("""
+        <div class="team-tech-card">
+            <span class="uid-tag">GUIDE_NODE_00</span>
+            <h3>Prof. Abhishek</h3>
+            <p style="margin: 5px 0 15px 0; font-weight: 600; color: #4f46e5;">Academic Systems Supervisor</p>
+            <p style="font-size: 16px !important; line-height: 1.6;">Directs architectural verification testing methodologies, proof validation models, and deep learning integrity reports.</p>
+        </div>
+        """, unsafe_allow_html=True)
 
-def render_team_view():
-    components.html(TEAM_HTML, height=400, scrolling=False)
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    st.markdown("<h3 style='font-weight: 800; margin-bottom: 20px;'>Pipeline Functional Overhaul Areas</h3>", unsafe_allow_html=True)
+
+    # Hover Adaptive Structural Blocks
+    st.markdown("""
+    <style>
+        .resp-bar { padding: 16px 24px; border-radius: 8px; margin-bottom: 12px; font-weight: 600; font-size: 17px; transition: all 0.2s; border-left: 3px solid #10b981; }
+        .resp-bar:hover { transform: translateX(6px); }
+        @media (prefers-color-scheme: dark) { .resp-bar { background: rgba(16,185,129,0.08); color: #a7f3d0; } }
+        @media (prefers-color-scheme: light) { .resp-bar { background: #f0fdf4; color: #166534; } }
+    </style>
+    <div class="resp-bar">Core Mathematical Weight Configurations</div>
+    <div class="resp-bar">Context Embeddings Database Ingestion Validation</div>
+    <div class="resp-bar">Multi-Modal Metric Processing Infrastructure Array</div>
+    """, unsafe_allow_html=True)
+
+    render_footer()

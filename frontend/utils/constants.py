@@ -2,7 +2,7 @@ PROJECT_NAME = "Sentiment-Aware Customer Support Assistant"
 
 TEAM = [
     "Atharv Joshi",
-    "Drishti"
+    "Drishti Ahuja"
 ]
 
 GUIDE = "Prof. Abhishek Srivastava"

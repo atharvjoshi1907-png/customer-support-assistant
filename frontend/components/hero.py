@@ -1,88 +1,32 @@
 import streamlit as st
-from pathlib import Path
-import base64
 
-def hero():
-    image_path = Path("assets/image_1.jpg")
-    try:
-        with open(image_path, "rb") as img:
-            encoded = base64.b64encode(img.read()).decode()
-    except FileNotFoundError:
-        encoded = ""
-
-    st.markdown(f"""
-    <style>
-    @keyframes fadeInUp {{
-        from {{ transform: translateY(20px); opacity: 0; }}
-        to {{ transform: translateY(0); opacity: 1; }}
-    }}
-    
-    .hero-banner {{
-        height: 380px;
-        border-radius: 24px;
-        position: relative;
-        overflow: hidden;
-        background: 
-            linear-gradient(rgba(7, 27, 77, 0.88), rgba(7, 27, 77, 0.92)),
-            url("data:image/jpeg;base64,{encoded}");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        padding: 60px;
-        margin-bottom: 35px;
-        box-shadow: 0 15px 35px rgba(7, 27, 77, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }}
-    .hero-badge {{
-        color: #D4A017;
-        font-weight: 700;
-        font-size: 11px;
-        letter-spacing: 2.5px;
-        text-transform: uppercase;
-        margin-bottom: 12px;
-        background: rgba(212, 160, 23, 0.1);
-        padding: 6px 12px;
-        border-radius: 20px;
-        display: inline-block;
-        border: 1px solid rgba(212, 160, 23, 0.2);
-    }}
-    .hero-title {{
-        color: white;
-        font-size: 56px;
-        font-weight: 800;
-        line-height: 1.1;
-        margin: 0;
-        letter-spacing: -1px;
-    }}
-    .hero-subtitle {{
-        color: #F1F5F9;
-        font-size: 24px;
-        font-weight: 400;
-        margin-top: 8px;
-        opacity: 0.95;
-    }}
-    .hero-description {{
-        color: #CBD5E1;
-        font-size: 15px;
-        max-width: 700px;
-        line-height: 1.6;
-        margin-top: 18px;
-    }}
-    </style>
-    """, unsafe_allow_html=True)
-
-    st.markdown("""
-    <div class="hero-banner">
-        <div>
-            <div class="hero-badge">Phase 1 Labs • Active Evaluation</div>
-            <h1 class="hero-title">EchoDesk AI</h1>
-            <div class="hero-subtitle">Sentiment-Aware Customer Support Assistant</div>
-            <p class="hero-description">
-                An advanced research platform designed to evaluate and map semantic response generations 
-                across varying NLP engineering architectures and fine-tuning frameworks.
+def render_hero():
+    st.markdown(
+        """
+        <style>
+            .hero-box {
+                background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa');
+                background-size: cover;
+                background-position: center;
+                border-radius: 12px;
+                padding: 30px;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                transition: transform 0.25s ease;
+                margin-bottom: 20px;
+            }
+            .hero-box:hover {
+                transform: translateY(-2px);
+            }
+        </style>
+        
+        <div class="hero-box">
+            <p style="font-size: 12px; color: #818cf8; font-weight: 700; margin: 0 0 6px 0; letter-spacing: 1px;">RESEARCH PROJECT CENTER</p>
+            <h1 style="margin: 0 0 6px 0; font-size: 32px; font-weight: 800; color: #ffffff !important;">SupportAI Platform</h1>
+            <h3 style="color: #e0e7ff !important; font-size: 18px; font-weight: 500; margin: 0 0 12px 0;">Smart Customer Support Automated Draft Engine</h3>
+            <p style="font-size: 14.5px; line-height: 1.5; color: #cbd5e1 !important; margin: 0; max-width: 720px;">
+                Built as an active research trial at IIT Indore. This system helps support staff review text trends, write answers instantly, and look up answers from data guides to help customers faster.
             </p>
         </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True
+    )

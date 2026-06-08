@@ -1,1 +1,1 @@
-# EchoDesk Components Package
+# SupportAI Components

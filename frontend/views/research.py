@@ -1,189 +1,66 @@
 import streamlit as st
-
+from components.metric_cards import render_metrics
+from components.feature_card import feature_card
+from components.footer import render_footer
 
 def render_research_view():
-    st.markdown(
-        """
-<section class="research-layout">
-    <aside class="research-sidebar">
-        <div class="side-item active">Problem Statement</div>
-        <div class="side-item">Dataset</div>
-        <div class="side-item">Methodology</div>
-        <div class="side-item">Baseline Model</div>
-        <div class="side-item">Rule-Based System</div>
-        <div class="side-item">Retrieval-Based System</div>
-        <div class="side-item">LoRA Fine-Tuning</div>
-        <div class="side-item">QLoRA Fine-Tuning</div>
-        <div class="side-item">Evaluation Metrics</div>
-        <div class="side-item">Future Work</div>
-    </aside>
-    <main class="research-content">
-        <section class="research-card">
-            <div class="statement">
-                <h2>Research Statement</h2>
-                <p>Customer support teams handle a massive volume of queries daily. Manual responses are time-consuming, inconsistent, and not scalable. There is a need for intelligent systems that can understand customer intent, sentiment, and context to generate accurate and helpful responses automatically.</p>
-                <div class="pipeline">
-                    <div class="pipe-node"><div class="pipe-icon">🧑</div><div class="pipe-label">Customer<br>Query</div></div>
-                    <div class="pipeline-arrow">→</div>
-                    <div class="pipe-node"><div class="pipe-icon">🔷</div><div class="pipe-label">NLP Pipeline<br><span class="pipe-sub">(Sentiment + Intent)</span></div></div>
-                    <div class="pipeline-arrow">→</div>
-                    <div class="pipe-node"><div class="pipe-icon">📋</div><div class="pipe-label">Response<br>Generation</div></div>
-                    <div class="pipeline-arrow">→</div>
-                    <div class="pipe-node"><div class="pipe-icon">✅</div><div class="pipe-label">Final<br>Response</div></div>
-                </div>
-            </div>
-            <div class="challenge-box">
-                <h3>Key Challenges</h3>
-                <ul class="challenge-list">
-                    <li>Understanding diverse customer intents and sentiments</li>
-                    <li>Generating contextually relevant and empathetic responses</li>
-                    <li>Comparing multiple response generation strategies</li>
-                    <li>Improving performance with parameter-efficient fine-tuning</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-</section>
-<style>
-    .research-layout {
-        display: grid;
-        grid-template-columns: 260px minmax(0, 1fr);
-        min-height: 600px;
-    }
-    .research-sidebar {
-        background: linear-gradient(180deg, #0e2848 0%, #112b4a 100%);
-        padding: 22px 0;
-    }
-    .side-item {
-        color: rgba(255,255,255,.72);
-        font-size: 14px;
-        font-weight: 700;
-        padding: 13px 28px;
-        cursor: pointer;
-        transition: background .15s;
-    }
-    .side-item:hover {
-        color: #fff;
-    }
-    .side-item.active {
-        color: #fff;
-        background: rgba(255,255,255,.08);
-        box-shadow: inset 4px 0 0 var(--gold);
-    }
-    .research-content {
-        padding: 28px 32px 44px;
-        background: #fff;
-    }
-    .research-card {
-        border: 1px solid #e8edf4;
-        border-radius: 8px;
-        box-shadow: 0 4px 18px rgba(16,33,60,.07);
-        overflow: hidden;
-        max-width: 820px;
-    }
-    .statement {
-        padding: 26px 28px 28px;
-    }
-    .statement h2 {
-        color: #1d2d44;
-        font-size: 24px;
-        margin: 0 0 14px;
-        font-weight: 800;
-    }
-    .statement p {
-        color: #334156;
-        font-size: 16px;
-        line-height: 1.55;
-        margin: 0 0 26px;
-        font-weight: 500;
-    }
-    .pipeline {
-        display: grid;
-        grid-template-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
-        align-items: center;
-        text-align: center;
-        gap: 4px;
-    }
-    .pipeline-arrow {
-        color: #506276;
-        font-size: 26px;
-        font-weight: 800;
-    }
-    .pipe-node {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-    }
-    .pipe-icon {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        color: #2c5d93;
-        background: #eef3fa;
-        font-size: 32px;
-    }
-    .pipe-label {
-        color: #26364b;
-        font-size: 13px;
-        line-height: 1.25;
-        font-weight: 800;
-    }
-    .pipe-sub {
-        font-size: 11px;
-        font-weight: 600;
-        color: #5d6b7e;
-    }
-    .challenge-box {
-        border-top: 1px solid #e8edf4;
-        padding: 22px 28px 28px;
-    }
-    .challenge-box h3 {
-        color: #1d2d44;
-        font-size: 20px;
-        margin: 0 0 16px;
-        font-weight: 800;
-    }
-    .challenge-list {
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        display: grid;
-        gap: 12px;
-    }
-    .challenge-list li {
-        color: #314157;
-        font-size: 14px;
-        font-weight: 700;
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-    }
-    .challenge-list li:before {
-        content: "✓";
-        color: #2e6fa9;
-        font-weight: 900;
-        flex-shrink: 0;
-        margin-top: 1px;
-    }
-    @media (max-width: 900px) {
-        .research-layout {
-            grid-template-columns: 1fr;
+    render_metrics()
+    st.markdown("<br><br>", unsafe_allow_html=True)
+
+    st.markdown("<h2 style='font-weight: 800; margin-bottom: 4px; letter-spacing: -0.5px;'>How the AI Learns</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #cbd5e1; opacity: 0.8; margin-bottom: 25px; font-size: 16px;'>We tested different ways to train our AI model to find the best balance of speed and helpfulness.</p>", unsafe_allow_html=True)
+
+    st.markdown("""
+    <style>
+        .tech-box {
+            padding: 22px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            border-left: 5px solid #38bdf8;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            transition: all 0.25s ease;
         }
-        .research-sidebar {
-            display: none;
+        .tech-box:hover { 
+            transform: translateY(-4px); 
+            border-color: rgba(56, 189, 248, 0.35);
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1);
         }
-        .pipeline {
-            grid-template-columns: 1fr;
-            gap: 18px;
-        }
-        .pipeline-arrow {
-            transform: rotate(90deg);
-        }
-    }
-</style>
-""",
-        unsafe_allow_html=True,
-    )
+    </style>
+    """, unsafe_allow_html=True)
+
+    m1, m2, m3, m4 = st.columns(4)
+    with m1: st.markdown('<div class="tech-box">⚡ Full fine-tuning</div>', unsafe_allow_html=True)
+    with m2: st.markdown('<div class="tech-box">⚙️ LoRA</div>', unsafe_allow_html=True)
+    with m3: st.markdown('<div class="tech-box">🧠 QLoRA</div>', unsafe_allow_html=True)
+    with m4: st.markdown('<div class="tech-box">🎯 Prompt Tuning</div>', unsafe_allow_html=True)
+
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    left, right = st.columns([1.2, 1])
+
+    with left:
+        st.markdown("<h2 style='font-weight: 800; margin-bottom: 18px; letter-spacing: -0.5px;'>Our Design Scope</h2>", unsafe_allow_html=True)
+        feature_card("🛡️ Safe and Correct Answers", "We evaluate models using validation loss, perplexity, and BLEU score check matching.")
+        st.markdown("<br>", unsafe_allow_html=True)
+        feature_card("🚀 Fine-Tuned Optimization", "Track trainable parameters, memory use, and training timelines flawlessly.")
+
+    with right:
+        st.markdown("<h2 style='font-weight: 800; margin-bottom: 18px; letter-spacing: -0.5px;'>System Pipeline Processing</h2>", unsafe_allow_html=True)
+        st.markdown("""
+        <div style="padding: 22px; border-radius: 12px; border: 1px dashed rgba(56, 189, 248, 0.25); background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px); color: #38bdf8;">
+            <code style="font-size: 14px; color: inherit; display:block; line-height: 1.7; background: transparent; font-family: monospace;">
+                <b>Step 1:</b> User inputs targeted support text query<br>
+                <b>Step 2:</b> Frontend routes packets down Flask backend API endpoint<br>
+                <b>Step 3:</b> Engine feeds variables through running fine-tuned model<br>
+                <b>Step 4:</b> Side-by-side array logic compares variant weights outputs<br>
+                <b>Step 5:</b> Dashboard updates loss curves visually
+            </code>
+        </div>
+        """, unsafe_allow_html=True)
+        st.progress(100)
+
+    render_footer()

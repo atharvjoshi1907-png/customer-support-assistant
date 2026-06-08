@@ -1,6 +1,7 @@
 import streamlit as st
 from components.reply_card import render_reply
 from components.footer import render_footer
+from api.clients import generate_reply
 
 def render_assistant_view():
     st.markdown("<h2 style='font-weight: 800; margin-bottom: 5px; letter-spacing: -0.5px;'>AI Help Desk Assistant</h2>", unsafe_allow_html=True)
@@ -23,8 +24,20 @@ def render_assistant_view():
     with right_col:
         if trigger_pipeline and customer_query.strip():
             st.markdown("<h4 style='font-weight: 700; margin-bottom: 15px;'>Generated Solution</h4>", unsafe_allow_html=True)
-            response = "Thank you for reaching out to Sentix AI support. We completely understand your issue and are here to help. Our support team is already checking your account details and will call or email you shortly with a full solution."
-            render_reply(response, "Polite / Calm", "95% Confident")
+            try:
+                result = generate_reply(customer_query)
+
+                reply = result.get("generated_reply", "No reply generated")
+                sentiment = result.get("sentiment", "Unknown")
+
+                render_reply(
+                    reply,
+                   sentiment,
+                    "Backend Generated"
+                )
+
+            except Exception as e:
+                st.error(f"API Error: {e}")
         else:
             st.markdown("<h4 style='font-weight: 700; margin-bottom: 12px;'>Waiting for Input</h4>", unsafe_allow_html=True)
             st.markdown("""

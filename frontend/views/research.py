@@ -50,17 +50,19 @@ def render_research_view():
 
     with right:
         st.markdown("<h2 style='font-weight: 800; margin-bottom: 18px; letter-spacing: -0.5px;'>System Pipeline Processing</h2>", unsafe_allow_html=True)
-        st.markdown("""
-        <div style="padding: 22px; border-radius: 12px; border: 1px dashed rgba(56, 189, 248, 0.25); background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px); color: #38bdf8;">
-            <code style="font-size: 14px; color: inherit; display:block; line-height: 1.7; background: transparent; font-family: monospace;">
-                <b>Step 1:</b> User inputs targeted support text query<br>
-                <b>Step 2:</b> Frontend routes packets down Flask backend API endpoint<br>
-                <b>Step 3:</b> Engine feeds variables through running fine-tuned model<br>
-                <b>Step 4:</b> Side-by-side array logic compares variant weights outputs<br>
-                <b>Step 5:</b> Dashboard updates loss curves visually
-            </code>
+        
+        # Wrapped cleanly in unsafe_allow_html to fix layout breakages
+        pipeline_markup = """
+        <div style="padding: 22px; border-radius: 12px; border: 1px dashed rgba(56, 189, 248, 0.25); background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px); color: #38bdf8; font-family: monospace; font-size: 14px; line-height: 1.7;">
+            <b>Step 1:</b> User inputs targeted support text query<br>
+            <b>Step 2:</b> Frontend routes packets down Render backend API endpoint<br>
+            <b>Step 3:</b> Engine feeds variables through running fine-tuned model<br>
+            <b>Step 4:</b> Side-by-side array logic compares variant weights outputs<br>
+            <b>Step 5:</b> Dashboard updates loss curves visually
         </div>
-        """, unsafe_allow_html=True)
+        """
+        st.markdown(pipeline_markup, unsafe_allow_html=True)
+        st.markdown("<br>", unsafe_allow_html=True)
         st.progress(100)
 
     render_footer()
